@@ -26,4 +26,4 @@ EXPOSE 8080
 EXPOSE 9000
 
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
-CMD ["npm", "start"]
+CMD ["'npm start'"]
