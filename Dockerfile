@@ -11,6 +11,9 @@ WORKDIR /home/ubuntu/app
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
+# Always install the latest one
+RUN nvm instal node && nvm use node
+
 RUN npm -g i yarn
 
 # Copy the package.json first in order not to reinstalling dependencies when they are not changed. See http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
