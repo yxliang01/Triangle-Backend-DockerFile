@@ -11,9 +11,8 @@ WORKDIR /home/ubuntu/app
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
-RUN source "$HOME/.bashrc"
 # Always install the latest one
-RUN nvm instal node && nvm use node
+RUN bash -i -c 'nvm instal node && nvm use node'
 
 RUN npm -g i yarn
 
