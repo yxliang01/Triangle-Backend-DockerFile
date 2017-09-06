@@ -12,17 +12,18 @@ WORKDIR /home/nodejs/app
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 # Always install the latest one
-RUN . $HOME/.profile && nvm install node && nvm use node
-
-RUN npm -g i yarn
+RUN bash --login -c "nvm install node && nvm use node"
+RUN bash --login -c "npm -g i yarn"
 
 # Copy the package.json first in order not to reinstalling dependencies when they are not changed. See http://bitjudo.com/blog/2014/03/13/building-efficient-dockerfiles-node-dot-js/
 COPY package.json .
 
-RUN yarn
+RUN bash --login -c yarn
 
 COPY . .
 
 EXPOSE 8080
 EXPOSE 9000
-CMD ["/bin/bash", "npm", "start"]
+
+ENTRYPOINT ["/bin/bash", "--login", "-c"]
+CMD ["npm", "start"]
