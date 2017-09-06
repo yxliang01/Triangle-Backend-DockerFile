@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Xiao Liang Yu <me@hiubright.com>
 
-RUN useradd -mU nodejs
+RUN useradd -mU -d /home/nodejs nodejs
 
 RUN apt-get update && apt-get install curl git -y
 
