@@ -6,6 +6,8 @@ RUN useradd -mU nodejs
 
 USER nodejs
 WORKDIR /home/ubuntu/app
+
+RUN apt-get update && apt-get install curl git -y
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash
 
 RUN npm -g i yarn
