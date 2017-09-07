@@ -25,4 +25,4 @@ RUN bash --login -c yarn
 EXPOSE 8080
 EXPOSE 9000
 
-CMD ["/bin/bash", "--login", "-c", "'npm start'"]
+CMD ["/bin/bash", "--login", "-c", "npm start"]
